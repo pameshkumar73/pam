@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Portfolio | Research & Blog</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <h1 class="logo">Academic Portfolio</h1>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="publications.html">Publications</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search research...">
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="highlights-container">
+            <h2 class="section-title">Research Pillars</h2>
+            <div class="highlight-grid">
+                <article class="highlight-card">
+                    <div class="card-icon">⚛️</div>
+                    <h3>Computational Modeling</h3>
+                    <p>DFT studies using GGA and HSE06 functionals for lead-free halides.</p>
+                </article>
+                <article class="highlight-card">
+                    <div class="card-icon">☀️</div>
+                    <h3>Photovoltaics</h3>
+                    <p>Stability analysis of 3rd generation Perovskite and Quantum Dot cells.</p>
+                </article>
+                <article class="highlight-card">
+                    <div class="card-icon">💧</div>
+                    <h3>Green Hydrogen</h3>
+                    <p>Heterojunction systems (ZnO/TiO₂) for solar water splitting.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="content-wrapper">
+            <article class="post-preview" data-title="Density Functional Theory">
+                <h2>DFT Study of Lead-Free Compounds</h2>
+                <p class="meta">March 20, 2026 | Physical Chemistry</p>
+                <p>Investigating electronic properties under hydrostatic pressure...</p>
+                <a href="#" class="read-more">Read More →</a>
+            </article>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 Research Portfolio. <a href="privacy.html">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple Search Logic
+        document.getElementById('searchInput').addEventListener('keyup', function() {
+            let query = this.value.toLowerCase();
+            let posts = document.querySelectorAll('.post-preview');
+            posts.forEach(post => {
+                let text = post.getAttribute('data-title').toLowerCase();
+                post.style.display = text.includes(query) ? 'block' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>

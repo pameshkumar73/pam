@@ -1,0 +1,29 @@
+/* script.js */
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Live Search Feature
+    const searchInput = document.getElementById('searchInput');
+    const posts = document.querySelectorAll('.post-preview, .pub-item');
+
+    if (searchInput) {
+        searchInput.addEventListener('keyup', () => {
+            const query = searchInput.value.toLowerCase();
+            posts.forEach(post => {
+                const text = post.innerText.toLowerCase();
+                post.style.display = text.includes(query) ? 'block' : 'none';
+            });
+        });
+    }
+
+    // 2. Citation Copy Tool
+    const copyBtns = document.querySelectorAll('.btn-copy');
+    copyBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const citation = btn.getAttribute('data-cite');
+            navigator.clipboard.writeText(citation).then(() => {
+                const originalText = btn.innerText;
+                btn.innerText = "Copied!";
+                setTimeout(() => { btn.innerText = originalText; }, 2000);
+            });
+        });
+    });
+});
